@@ -1,0 +1,33 @@
+const { Client, CommandInteraction, MessageEmbed, MessageSelectMenu, MessageActionRow, MessageButton } = require("discord.js");
+const { red, green, blue, magenta, cyan, white, gray, black } = require("chalk");
+
+module.exports = {
+    name: "setup-trailtostaff",
+    description: "👑 Promote a staff member ",
+    type: 'CHAT_INPUT',
+    options: [
+      {
+        name: "USER",
+        description: "Select a user you want to Promote",
+        type: "CHANNEL",
+        required: true,
+      }
+    ], 
+    run: async (client, interaction, args) => {
+      let ch = interaction.options.getChannel('channel');
+      let msg = await interaction.followUp(`Fetching..`);
+
+      if(!client.config.developers.includes(interaction.user.id)) return msg.edit(`🔒 You must be an owner to use this command!`)
+      if(ch.type != 'GUILD_TEXT') return msg.edit(`🚩 You must provide a channel, and not category or voice channel!`)
+      
+     const user = interaction.options.getMember('USER'); const ad_btn = new MessageActionRow()
+      .addComponents([
+        new MessageButton()
+        .setLabel(`Action by ${interaction.user.username}`)
+        .setDisabled(true)
+
+  client.channels.cache.get(`983011982024261672`).send({ content: `<a:exclimination:933776338547007488> **Staff Promotion : ${user}** <a:exclimination:933776338547007488>\n> **A new member of the staff has now become a supporter  member! Congrat them in chat and show them around!**\n~ @everyone`, components: [ad_btn] })
+
+      
+          user.roles.add("983011782559957012")
+          user.roles.remove("983011783444947054")

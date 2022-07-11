@@ -1,0 +1,43 @@
+ //
+  // const client = require("./index");
+//const { MessageEmbed, Collection, MessageActionRow, MessageSelectMenu, MessageButton } = require("discord.js")
+//const moment = require("moment")
+//const db = require(`quick.db`)
+console.log(`[🔑 PRIVATE] Loaded the Private-Event: Verify`.blue.bold)
+client.on("interactionCreate", async (interaction) => {
+  if(!interaction.isButton() && !interaction.isSelectMenu()) return;
+let uirole = `983011809000849469`;if(interaction.values == `verifylolpg`) 
+    async(clientverirole)
+   {
+         
+          
+         if(interaction.member.roles.cache.has(uirole)) {
+          await interaction.member.roles.remove(uirole)
+          await client.channels.cache.get(`940557402737090570`).send(`<:leaves:906786209542570035> **${interaction.user.tag} Has left \`Dpdx™ | Development!\`**`)
+           return interaction.reply({ content: `<:leaves:906786209542570035> **Removed the Members Role!**`, ephemeral: true})
+         }
+                         interaction.reply({ content: `<a:yes:906785808940425267> **You are now unlocked for Dpdx™ | Development!**`, ephemeral: true})
+                              interaction.member.roles.add(uirole)
+                        client.channels.cache.get(`983012004296011826`).send(`<:join:906786246767038515> **${interaction.user} Welcome to \`Dpdx™ | Development!\`**\n> **Read <#983011990710673408>!\n> Chat in <#983012004296011826> and use bots in <#983012008569995264>!**`)
+                        
+                        
+              
+              
+        } //if (interaction.values == 'verify2') {
+          const role = `927618972956901417`;
+           
+          if(interaction.member.roles.cache.has(role)) {
+            await interaction.member.roles.remove(role)
+            await client.channels.cache.get(`928338807588257873`).send(`<:rleave:921764949414518816> **${interaction.user.tag} Has left \`Lightout!\`**`)
+             return interaction.reply({ content: `${client.emojino} Removed the Lightout Users Role!`, ephemeral: true})
+           }
+                          interaction.reply({ content: `${client.emojiyes} You are now unlocked for Lightout!`, ephemeral: true})
+                               interaction.member.roles.add(role)
+                               client.channels.cache.get(`928338807588257873`).send(`<:rjoin:921764949116723291> **${interaction.user} Welcome to \`Lightout!\`**\n> Read the <#928338865616486470> and chat in <#928338636599091241>!`)
+                         
+                         
+               
+               
+         }
+        })
+    //
